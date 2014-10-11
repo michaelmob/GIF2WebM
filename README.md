@@ -9,4 +9,4 @@ Main Window<br/>
 ![ScreenShot](https://raw.githubusercontent.com/thetarkus/GIF2WebM/master/Preview/main_window.png)
 
 Convert Window / Select & Remove Frames<br/>
-![ScreenShot](https://raw.githubusercontent.com/thetarkus/GIF2WebM/master/Preview/convert_window.png)
+![ScreenShot](https://raw.githubusercontent.com/thetarkus/GIF2WebM/master/Preview/frames_window.png)
