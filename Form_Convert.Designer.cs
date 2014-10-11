@@ -1,6 +1,6 @@
 ﻿namespace GIF2WebM
 {
-    partial class Form_Convert
+    partial class Form_Frames
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Convert));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Frames));
             this.list_frames = new System.Windows.Forms.ListBox();
             this.frames_context = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.split_container = new System.Windows.Forms.SplitContainer();
+            this.button_bitrate_help = new System.Windows.Forms.Button();
+            this.button_fps_help = new System.Windows.Forms.Button();
             this.numeric_fps = new System.Windows.Forms.NumericUpDown();
             this.text_bitrate = new System.Windows.Forms.TextBox();
             this.label_fps = new System.Windows.Forms.Label();
@@ -44,10 +46,7 @@
             this.preview = new System.Windows.Forms.PictureBox();
             this.button_done = new System.Windows.Forms.Button();
             this.worker = new System.ComponentModel.BackgroundWorker();
-            this.button_fps_help = new System.Windows.Forms.Button();
-            this.button_bitrate_help = new System.Windows.Forms.Button();
             this.frames_context.SuspendLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.split_container)).BeginInit();
             this.split_container.Panel1.SuspendLayout();
             this.split_container.Panel2.SuspendLayout();
             this.split_container.SuspendLayout();
@@ -110,6 +109,26 @@
             this.split_container.Size = new System.Drawing.Size(653, 419);
             this.split_container.SplitterDistance = 217;
             this.split_container.TabIndex = 1;
+            // 
+            // button_bitrate_help
+            // 
+            this.button_bitrate_help.Location = new System.Drawing.Point(48, 344);
+            this.button_bitrate_help.Name = "button_bitrate_help";
+            this.button_bitrate_help.Size = new System.Drawing.Size(20, 20);
+            this.button_bitrate_help.TabIndex = 10;
+            this.button_bitrate_help.Text = "?";
+            this.button_bitrate_help.UseVisualStyleBackColor = true;
+            this.button_bitrate_help.Click += new System.EventHandler(this.button_bitrate_help_Click);
+            // 
+            // button_fps_help
+            // 
+            this.button_fps_help.Location = new System.Drawing.Point(48, 323);
+            this.button_fps_help.Name = "button_fps_help";
+            this.button_fps_help.Size = new System.Drawing.Size(20, 20);
+            this.button_fps_help.TabIndex = 9;
+            this.button_fps_help.Text = "?";
+            this.button_fps_help.UseVisualStyleBackColor = true;
+            this.button_fps_help.Click += new System.EventHandler(this.button_fps_help_Click);
             // 
             // numeric_fps
             // 
@@ -222,42 +241,20 @@
             this.worker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.worker_ProgressChanged);
             this.worker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.worker_RunWorkerCompleted);
             // 
-            // button_fps_help
-            // 
-            this.button_fps_help.Location = new System.Drawing.Point(48, 323);
-            this.button_fps_help.Name = "button_fps_help";
-            this.button_fps_help.Size = new System.Drawing.Size(20, 20);
-            this.button_fps_help.TabIndex = 9;
-            this.button_fps_help.Text = "?";
-            this.button_fps_help.UseVisualStyleBackColor = true;
-            this.button_fps_help.Click += new System.EventHandler(this.button_fps_help_Click);
-            // 
-            // button_bitrate_help
-            // 
-            this.button_bitrate_help.Location = new System.Drawing.Point(48, 344);
-            this.button_bitrate_help.Name = "button_bitrate_help";
-            this.button_bitrate_help.Size = new System.Drawing.Size(20, 20);
-            this.button_bitrate_help.TabIndex = 10;
-            this.button_bitrate_help.Text = "?";
-            this.button_bitrate_help.UseVisualStyleBackColor = true;
-            this.button_bitrate_help.Click += new System.EventHandler(this.button_bitrate_help_Click);
-            // 
-            // Form_Convert
+            // Form_Frames
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 419);
             this.Controls.Add(this.split_container);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form_Convert";
-            this.Text = "Convert";
+            this.Name = "Form_Frames";
+            this.Text = "GIF2WebM Frames";
             this.Load += new System.EventHandler(this.Form_Convert_Load);
-            this.Shown += new System.EventHandler(this.Form_Convert_Shown);
             this.frames_context.ResumeLayout(false);
             this.split_container.Panel1.ResumeLayout(false);
             this.split_container.Panel1.PerformLayout();
             this.split_container.Panel2.ResumeLayout(false);
-            //((System.ComponentModel.ISupportInitialize)(this.split_container)).EndInit();
             this.split_container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numeric_fps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.preview)).EndInit();

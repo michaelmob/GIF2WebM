@@ -8,14 +8,14 @@ using System.Diagnostics;
 
 namespace GIF2WebM
 {
-    public partial class Form_Convert : Form
+    public partial class Form_Frames : Form
     {
         public String args;
         public String temp = Path.GetTempPath() + "\\" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond).ToString() + "\\";
         public Boolean done = false;
         GIF gif;
 
-        public Form_Convert(Image _gif)
+        public Form_Frames(Image _gif)
         {
             InitializeComponent();
 
@@ -25,7 +25,12 @@ namespace GIF2WebM
 
         private void Form_Convert_Load(object sender, EventArgs e)
         {
+            // Create directory the unique directory
+            Directory.CreateDirectory(temp);
 
+            // Set the status and then start the worker
+            label_status.Text = "Saving";
+            worker.RunWorkerAsync();
         }
 
         private void list_frames_SelectedIndexChanged(object sender, EventArgs e)
@@ -38,16 +43,6 @@ namespace GIF2WebM
                 if(list_frames.SelectedIndex != -1)
                     list_frames.Items.RemoveAt(list_frames.SelectedIndex);
             }
-        }
-
-        private void Form_Convert_Shown(object sender, EventArgs e)
-        {
-            // Create directory the unique directory
-            Directory.CreateDirectory(temp);
-
-            // Set the status and then start the worker
-            label_status.Text = "Saving";
-            worker.RunWorkerAsync();
         }
 
         private void worker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -75,6 +70,8 @@ namespace GIF2WebM
 
             for (int i = 0; i < files.Length; i++)
                 list_frames.Items.Add((i+1).ToString());
+
+            list_frames.SetSelected(0, true);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,12 +118,22 @@ namespace GIF2WebM
 
         private void button_fps_help_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Higher frames per second for faster moving picture.", "FPS Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(
+                "Higher frames per second for faster moving picture.",
+                "FPS Help",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
         private void button_bitrate_help_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Higher bitrate for higher quality but also increases file size.", "Bitrate Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(
+                "Higher bitrate for higher quality but also increases file size.",
+                "Bitrate Help",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
     }
 

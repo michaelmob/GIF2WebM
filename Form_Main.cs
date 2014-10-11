@@ -77,7 +77,7 @@ namespace GIF2WebM
         {
             // Open our converter as a dialog so we can't have more than one
             // running at a time
-            var form_convert = new Form_Convert(gif);
+            var form_convert = new Form_Frames(gif);
             form_convert.ShowDialog();
 
             if (form_convert.done == true) {
@@ -103,7 +103,7 @@ namespace GIF2WebM
 
             // Delete the directory afterwards since we don't need the
             // images anymore
-            Directory.Delete(form_convert.temp);
+            Directory.Delete(form_convert.temp, true);
         }
 
         private void verify(String[] filenames)
